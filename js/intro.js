@@ -7,6 +7,10 @@ function intro(){
 	var intro_ready = false;
 	
 	this.setup = function(){
+		// dev mode
+		/**/ intro_ready = true;
+		// dev mode
+		
 		var unit = jaws.height / 16;
 		
 		text_stack.push( new jaws.Text({  text: "/*An unconvetional weapone ", x: left , y: unit , color: "white", fontSize: 14, textAlign: "left", fontFace: "courier" }) );
@@ -40,6 +44,11 @@ function intro(){
 			jaws.on_keydown( "down", function(){
 				options_index++;
 			} );
+			
+			jaws.on_keydown( "enter", function(){
+				if( options_index == 0 )  jaws.switchGameState( the_forest );
+				
+			});
 			
 			if( options_index > 1 ) options_index = 0;
 			if( options_index < 0 ) options_index = 1;
