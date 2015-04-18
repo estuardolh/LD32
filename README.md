@@ -14,4 +14,10 @@ letters, shortcuts, love, hipno-music , pills, money, fame, icecream, chocolate,
 time to dev !
 
 
-## facts
+## done-list
+- [x] intro
+- [x] ground
+- [x] 4-way hero sprite
+- [x] using POO
+- [x] viewport
+- [ ] touch handle

@@ -1,13 +1,35 @@
+/*
+options.cell_size: cell size of items in display
+options.x: display x position in canvas
+options.y display y position in canvas
+*/
 function display( options = null ){
-	var map = new jaws.TileMap({ size: [ options.items_count + options.left, 2 ], cell_size: options.cell_size });
-	
-	for( var r = 0; r < options.items_count ; r += 1 ){
-		var xx = options.left * options.cell_size[0] + r * options.cell_size[0];
-		
-		map.push( new jaws.Sprite({ image: "./img/heart.png", x: xx, y: options.cell_size[1] }) );
+	var a_display = {};
+	a_display.map = [];
+
+	/* add a Sprite like item in row
+	*/
+	a_display.addItem = function( sprite ){
+		sprite.x = options.x + a_display.map.length * options.cell_size[0];
+		sprite.y = options.y;
+		a_display.map.push( sprite );
 	}
 	
-	map.ini_count = options.items_count;
+	/* update all items in map
+	*/
+	a_display.update = function(){
+		a_display.map.forEach( function( item ){
+			item.update();
+		});
+	}
 	
-	return map;
+	/* draw all items in map
+	*/
+	a_display.draw = function(){
+		a_display.map.forEach( function( item ){
+			item.draw();
+		});
+	}
+	
+	return a_display;
 }
