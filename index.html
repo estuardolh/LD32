@@ -6,39 +6,32 @@
 </head>
 
 <body style="background-color: #E6F1F6" >
-	<center>
-	<table height="100%">
-		<tr height="100%">
-		<td height="100%">
-		
-		<canvas id = "screen" width=300 height=200 style="background-color: black">
-		:C you need some modern internet browser
-		</canvas>
-		
-		<script type="text/javascript"  src="./js/intro.js" ></script>
-		<script type="text/javascript"  src="./js/credits.js" ></script>
-		<script type="text/javascript"  src="./js/the_forest.js" ></script>
-		<script type="text/javascript"  src="./js/display.js" ></script>
-		<script type="text/javascript"  src="./js/human.js" ></script>
-		<script type="text/javascript"  src="./js/mail.js" ></script>
-		
-		<script type="text/javascript" >
-			jaws.onload = function(){
-				jaws.assets.add([
-					"./img/avatar.png"
-					, "./img/grass.png"
-					, "./img/heart.png"
-					, "./img/hero.png"
-				]);
-				jaws.start( new intro() );
-			}
-		</script>
-		</p>
-		<tt> Follow me on <a href="https://github.com/estuardolh/">Github</a> </tt>
-		
-		</td>
-		</tr>
-	</table>
-	</center>
+	<canvas id = "screen" width=300 height=300 style="background-color: black;">
+	:C you need some modern internet browser
+	</canvas>
+	
+	<script type="text/javascript"  src="./js/intro.js" ></script>
+	<script type="text/javascript"  src="./js/credits.js" ></script>
+	<script type="text/javascript"  src="./js/the_forest.js" ></script>
+	<script type="text/javascript"  src="./js/display.js" ></script>
+	<script type="text/javascript"  src="./js/human.js" ></script>
+	<script type="text/javascript"  src="./js/gamepad.js" ></script>
+	<script type="text/javascript"  src="./js/rabbit.js" ></script>
+	<script type="text/javascript"  src="./js/mail.js" ></script>
+	
+	<script type="text/javascript" >
+		jaws.onload = function(){
+			jaws.assets.add([
+				"./img/avatar.png"
+				, "./img/grass.png"
+				, "./img/heart.png"
+				, "./img/hero.png"
+				, "./img/bunny.png"
+			]);
+			jaws.start( new intro() );
+		}
+	</script>
+	</p>
+	<tt> Follow me on <a href="https://github.com/estuardolh/">Github</a> </tt>
 </body>
 </html>

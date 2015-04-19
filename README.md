@@ -20,4 +20,5 @@ time to dev !
 - [x] 4-way hero sprite
 - [x] using POO
 - [x] viewport
-- [ ] touch handle
+- [x]  touch & click handle
+- [x] scale
