@@ -22,3 +22,5 @@ time to dev !
 - [x] viewport
 - [x]  touch & click handle
 - [x] scale
+
+[play game here](https://rawgit.com/estuardolh/LD32/master/index.html)
