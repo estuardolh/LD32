@@ -8,6 +8,7 @@ function the_forest(){
 		tile_height = 16,
 		tile_prev_width = 16,
 		tile_prev_height = 16;
+	var dialog = null;
 	
 	var scale_me = function( ){
 		var t, r;
@@ -79,15 +80,39 @@ function the_forest(){
 		
 		hero = new human({ x: 10 * map.cell_size[0], y: 10 * map.cell_size[1] });
 		
+		console.log( hero.toString() );
+		
 		viewport = new jaws.Viewport({  max_x: map.size[0] * map.cell_size[0], max_y: map.size[1] * map.cell_size[1] });
+		
+		var animation_base = new jaws.Animation({ sprite_sheet: "./img/bunny.png", frame_size: [ tile_width, tile_height ], frame_duration: 1000 });
 		
 		for( t = 0; t < map.size[0] ; t ++ ){
 			for( r = 0 ; r < map.size[1] ; r++ ){
-				if( Math.random() < 0.18 ){
-					map.push( new rabbit({ frame_size: [ tile_width, tile_height ], x: t * tile_width, y: r * tile_height }) );
+				if( Math.random() < 0.01 ){
+					map.push( new rabbit({ frame_size: [ tile_width, tile_height ], x: t * tile_width, y: r * tile_height, animation_base: animation_base }) );
 				}
 			}
 		}
+		/*
+		for( t = 0; t < map.size[0] ; t ++ ){
+			for( r = 0 ; r < map.size[1] ; r++ ){
+				if( Math.random() < 0.08 ){
+					map.push( new enemy({ frame_size: [ tile_width, tile_height ], x: t * tile_width, y: r * tile_height }) );
+				}
+			}
+		}
+		*/
+		
+		map.sortCells( function( a, b){
+			if( a.name == "enemy" && b.name != "enemy" ){
+				return 1;
+			}
+			
+			return 0;
+		} );
+		
+		dialog = new mail({ tile_width: 16, tile_height: 16, scale: 2, mail_width: 8, x: tile_width * scale, y: 0 });
+		dialog.ini();
 
 		scale = 2;
 		scale_me();
@@ -112,6 +137,8 @@ function the_forest(){
 				})
 			}
 		}
+		
+		dialog.update();
 	}
 	
 	this.draw = function(){
@@ -133,5 +160,6 @@ function the_forest(){
 		});
 		
 		hearts.draw();
+		dialog.draw();
 	}
 }

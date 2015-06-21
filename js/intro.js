@@ -38,20 +38,24 @@ function intro(){
 			} );
 		}else{
 			// key events
-			jaws.on_keydown( "up", function(){
-				options_index--;
-			} );
-			jaws.on_keydown( "down", function(){
-				options_index++;
-			} );
 			
-			jaws.on_keydown( "enter", function(){
-				if( options_index == 0 )  jaws.switchGameState( the_forest );
+			if(false){
+				jaws.on_keydown( "up", function(){
+					options_index--;
+				} );
+				jaws.on_keydown( "down", function(){
+					options_index++;
+				} );
 				
-			});
-			
-			if( options_index > 1 ) options_index = 0;
-			if( options_index < 0 ) options_index = 1;
+				jaws.on_keydown( "enter", function(){
+					if( options_index == 0 )  jaws.switchGameState( the_forest );
+					
+				});
+				
+				if( options_index > 1 ) options_index = 0;
+				if( options_index < 0 ) options_index = 1;	
+			}
+			jaws.switchGameState( the_forest );
 		}
 		
 	}

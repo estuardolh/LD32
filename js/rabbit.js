@@ -7,11 +7,15 @@ function rabbit( options = null ){
 	a_rabbit.options = options;
 	a_rabbit.options.vel_ini = 30;
 	a_rabbit.options.vel = a_rabbit.options.vel_ini;
-	a_rabbit.animation_base = new jaws.Animation({ sprite_sheet: "./img/bunny.png", frame_size: options.frame_size, frame_duration: 1000 });
+	a_rabbit.animation_base = a_rabbit.options.animation_base;
 	a_rabbit.animation_left = a_rabbit.animation_base.slice( 0, 2 );
 	a_rabbit.animation_right = a_rabbit.animation_base.slice( 2, 4 );
 	a_rabbit.animation_down = a_rabbit.animation_base.slice( 4, 6 );
 	a_rabbit.animation_up = a_rabbit.animation_base.slice( 6, 8 );
+	
+	a_rabbit.load = function(){
+		
+	}
 	
 	a_rabbit.now = function(){
 		if( a_rabbit.options.vel -- > 0 ){
